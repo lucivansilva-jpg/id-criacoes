@@ -1,0 +1,36 @@
+{
+  "entities": {
+    "site_settings": {
+      "title": "Site Settings",
+      "description": "Global settings and content managed by admin",
+      "type": "object",
+      "properties": {
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "updatedBy": { "type": "string" }
+      },
+      "required": ["updatedAt"]
+    },
+    "leads": {
+      "title": "Leads",
+      "description": "Contact form submissions or leads",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/site_settings/{docId}": {
+      "entity": "site_settings",
+      "description": "Site configurations, only writable by admin"
+    },
+    "/leads/{leadId}": {
+      "entity": "leads",
+      "description": "User leads, created by public, read by admin"
+    }
+  }
+}

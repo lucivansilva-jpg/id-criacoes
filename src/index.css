@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+/* =========================================================================
+   GLOBAL MULTI-THEME ARCHITECTURE (ID Criações)
+   Supports: 'dark' | 'light' | 'navy' | 'emerald' | 'gold'
+   ========================================================================= */
+
+:root,
+[data-theme="dark"] {
+  --bg-page: #09090b;
+  --bg-section-alt: rgba(24, 24, 27, 0.6);
+  --bg-card: rgba(24, 24, 27, 0.85);
+  --bg-card-solid: #18181b;
+  --bg-card-subtle: rgba(9, 9, 11, 0.8);
+  --bg-input: #18181b;
+  --border-color: rgba(39, 39, 42, 0.85);
+  --border-color-subtle: rgba(39, 39, 42, 0.5);
+  --border-card-hover: rgba(34, 211, 238, 0.5);
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4d8;
+  --text-muted: #a1a1aa;
+  --accent-color: #22d3ee;
+  --accent-hover: #38bdf8;
+  --accent-text-color: #09090b;
+  --accent-bg-subtle: rgba(34, 211, 238, 0.1);
+  --accent-border-subtle: rgba(34, 211, 238, 0.3);
+  --accent-shadow: 0 0 25px rgba(34, 211, 238, 0.35);
+  --hero-glow: rgba(34, 211, 238, 0.12);
+  --nav-bg: rgba(9, 9, 11, 0.92);
+  --nav-border: rgba(39, 39, 42, 0.85);
+  --footer-bg: #09090b;
+  --footer-border: #18181b;
+}
+
+[data-theme="light"] {
+  --bg-page: #f8fafc;
+  --bg-section-alt: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-card-solid: #ffffff;
+  --bg-card-subtle: #f8fafc;
+  --bg-input: #ffffff;
+  --border-color: #e2e8f0;
+  --border-color-subtle: #cbd5e1;
+  --border-card-hover: rgba(2, 132, 199, 0.6);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --accent-color: #0284c7;
+  --accent-hover: #0369a1;
+  --accent-text-color: #ffffff;
+  --accent-bg-subtle: rgba(2, 132, 199, 0.1);
+  --accent-border-subtle: rgba(2, 132, 199, 0.28);
+  --accent-shadow: 0 0 25px rgba(2, 132, 199, 0.25);
+  --hero-glow: rgba(2, 132, 199, 0.12);
+  --nav-bg: rgba(255, 255, 255, 0.94);
+  --nav-border: #e2e8f0;
+  --footer-bg: #0f172a;
+  --footer-border: #1e293b;
+}
+
+[data-theme="navy"] {
+  --bg-page: #060c18;
+  --bg-section-alt: #0a1428;
+  --bg-card: rgba(13, 27, 54, 0.85);
+  --bg-card-solid: #0d1b36;
+  --bg-card-subtle: #081022;
+  --bg-input: #0d1b36;
+  --border-color: rgba(30, 58, 138, 0.45);
+  --border-color-subtle: rgba(30, 58, 138, 0.25);
+  --border-card-hover: rgba(56, 189, 248, 0.5);
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --accent-color: #38bdf8;
+  --accent-hover: #60a5fa;
+  --accent-text-color: #060c18;
+  --accent-bg-subtle: rgba(56, 189, 248, 0.12);
+  --accent-border-subtle: rgba(56, 189, 248, 0.3);
+  --accent-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
+  --hero-glow: rgba(56, 189, 248, 0.15);
+  --nav-bg: rgba(6, 12, 24, 0.92);
+  --nav-border: rgba(30, 58, 138, 0.45);
+  --footer-bg: #040810;
+  --footer-border: #0d1b36;
+}
+
+[data-theme="emerald"] {
+  --bg-page: #040f0b;
+  --bg-section-alt: #071912;
+  --bg-card: rgba(9, 34, 25, 0.85);
+  --bg-card-solid: #092219;
+  --bg-card-subtle: #05140f;
+  --bg-input: #092219;
+  --border-color: rgba(6, 78, 59, 0.5);
+  --border-color-subtle: rgba(6, 78, 59, 0.3);
+  --border-card-hover: rgba(52, 211, 153, 0.5);
+  --text-primary: #ffffff;
+  --text-secondary: #d1fae5;
+  --text-muted: #6ee7b7;
+  --accent-color: #34d399;
+  --accent-hover: #10b981;
+  --accent-text-color: #040f0b;
+  --accent-bg-subtle: rgba(52, 211, 153, 0.12);
+  --accent-border-subtle: rgba(52, 211, 153, 0.3);
+  --accent-shadow: 0 0 25px rgba(52, 211, 153, 0.35);
+  --hero-glow: rgba(52, 211, 153, 0.15);
+  --nav-bg: rgba(4, 15, 11, 0.92);
+  --nav-border: rgba(6, 78, 59, 0.5);
+  --footer-bg: #020806;
+  --footer-border: #071912;
+}
+
+[data-theme="gold"] {
+  --bg-page: #0d0905;
+  --bg-section-alt: #150f08;
+  --bg-card: rgba(28, 21, 11, 0.85);
+  --bg-card-solid: #1c150b;
+  --bg-card-subtle: #100b06;
+  --bg-input: #1c150b;
+  --border-color: rgba(120, 53, 15, 0.45);
+  --border-color-subtle: rgba(120, 53, 15, 0.25);
+  --border-card-hover: rgba(251, 191, 36, 0.5);
+  --text-primary: #ffffff;
+  --text-secondary: #fef3c7;
+  --text-muted: #fcd34d;
+  --accent-color: #fbbf24;
+  --accent-hover: #f59e0b;
+  --accent-text-color: #0d0905;
+  --accent-bg-subtle: rgba(251, 191, 36, 0.12);
+  --accent-border-subtle: rgba(251, 191, 36, 0.3);
+  --accent-shadow: 0 0 25px rgba(251, 191, 36, 0.35);
+  --hero-glow: rgba(251, 191, 36, 0.15);
+  --nav-bg: rgba(13, 9, 5, 0.92);
+  --nav-border: rgba(120, 53, 15, 0.45);
+  --footer-bg: #070503;
+  --footer-border: #150f08;
+}
+
+/* Global Root and Body Transitions */
+html, body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Semantic Theme Utility Helpers */
+.theme-page-bg {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+}
+
+.theme-section-alt {
+  background-color: var(--bg-section-alt);
+}
+
+.theme-card {
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.theme-card-subtle {
+  background-color: var(--bg-card-subtle);
+  border-color: var(--border-color);
+}
+
+.theme-border {
+  border-color: var(--border-color);
+}
+
+.theme-border-subtle {
+  border-color: var(--border-color-subtle);
+}
+
+.theme-text-primary {
+  color: var(--text-primary);
+}
+
+.theme-text-secondary {
+  color: var(--text-secondary);
+}
+
+.theme-text-muted {
+  color: var(--text-muted);
+}
+
+.theme-accent-text {
+  color: var(--accent-color);
+}
+
+.theme-accent-bg {
+  background-color: var(--accent-color);
+  color: var(--accent-text-color);
+}
+
+.theme-accent-pill {
+  background-color: var(--accent-bg-subtle);
+  color: var(--accent-color);
+  border-color: var(--accent-border-subtle);
+}
+
+.theme-input {
+  background-color: var(--bg-input);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.theme-input:focus {
+  border-color: var(--accent-color);
+}
+
+/* =========================================================================
+   INFINITE MARQUEE CAROUSEL ANIMATION (Vitrine de Projetos)
+   ========================================================================= */
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-scroll var(--marquee-speed, 50s) linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-paused {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation-duration: 120s;
+  }
+}

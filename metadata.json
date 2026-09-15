@@ -1,0 +1,8 @@
+{
+  "name": "ID Criações",
+  "description": "Landing page profissional da ID Criações com vitrine de modelos de sites focada em conversão e captação de clientes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
