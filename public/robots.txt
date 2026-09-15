@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://idcriacoes.netlify.app/sitemap.xml
