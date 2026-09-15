@@ -287,6 +287,11 @@ FORMATO:
     }
   });
 
+  // Google Search Console Site Verification File
+  app.get("/google73920e32d13bcfc0.html", (req, res) => {
+    res.type("text/html").send("google-site-verification: google73920e32d13bcfc0.html");
+  });
+
   // Vite middleware for development vs static serve in production
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
